@@ -38,7 +38,7 @@
 
 static NSURLRequestCachePolicy const cachePolicy = NSURLRequestReloadRevalidatingCacheData;
 
-static float const streamingTimeoutInterval = 30.0f;
+static float const streamingTimeoutInterval = 60.0f;
 
 static char const Encode[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
 
@@ -1829,7 +1829,7 @@ id removeNull(id rootObject) {
         return authError;
     }
     
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:30.0f];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:60.0f];
     [request setHTTPMethod:@"POST"];
     [request setHTTPShouldHandleCookies:NO];
     // chose between multipart form and url encoded data formatting for request params
@@ -1889,7 +1889,7 @@ id removeNull(id rootObject) {
         
     } else {
         
-        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:30.0f];
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:60.0f];
         [request setHTTPMethod:@"POST"];
         [request setHTTPShouldHandleCookies:NO];
         
@@ -1941,7 +1941,7 @@ id removeNull(id rootObject) {
         url = [NSURL URLWithString:[NSString stringWithFormat:@"%@?%@",fhs_url_remove_params(url), [paramPairs componentsJoinedByString:@"&"]]];
     }
     
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:30.0f];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:60.0f];
     [request setHTTPMethod:@"GET"];
     [request setHTTPShouldHandleCookies:NO];
     [self signRequest:request];
@@ -2012,7 +2012,7 @@ id removeNull(id rootObject) {
 - (NSString *)getRequestTokenString {
     
     NSURL *url = [NSURL URLWithString:@"https://api.twitter.com/oauth/request_token"];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:30.0f];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:60.0f];
     [request setHTTPMethod:@"POST"];
     [request setHTTPShouldHandleCookies:NO];
     [self signRequest:request withToken:nil tokenSecret:nil verifier:nil];
@@ -2029,7 +2029,7 @@ id removeNull(id rootObject) {
 - (BOOL)finishAuthWithRequestToken:(FHSToken *)reqToken {
     
     NSURL *url = [NSURL URLWithString:@"https://api.twitter.com/oauth/access_token"];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:30.0f];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:60.0f];
     [request setHTTPMethod:@"POST"];
     [request setHTTPShouldHandleCookies:NO];
     [self signRequest:request withToken:reqToken.key tokenSecret:reqToken.secret verifier:reqToken.verifier];
@@ -2069,7 +2069,7 @@ id removeNull(id rootObject) {
     }
     
     NSURL *url = [NSURL URLWithString:@"https://api.twitter.com/oauth/access_token"];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:30.0f];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:60.0f];
     [request setHTTPMethod:@"POST"];
     [request setHTTPShouldHandleCookies:NO];
     [self signRequest:request withToken:nil tokenSecret:nil verifier:nil];
